@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Header from '../component/Header'
+import { COLORS } from '../contacts/thems'
 
 const HomeScreen = () => {
   return (
-    <View>
+    <View style={{flex:1,backgroundColor:COLORS.backgroung}}>
       <Header/>
       <Text>HomeScreen</Text>
     </View>
