@@ -1,3 +1,0 @@
-Public class oakar{
-}
-new note to oakar
