@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { COLORS } from '../contacts/thems'
 
 const Header = () => {
   return (
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection:'row',
         height: 80,
-        backgroundColor: "#284b63",
+        backgroundColor:COLORS.primary,
         alignItems: 'center',
         padding: 10,
     },
