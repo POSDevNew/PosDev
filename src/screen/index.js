@@ -1,5 +1,3 @@
-import HomeScreen from "./HomeScreen"
-
-export {
-    HomeScreen,
-}
+import HomeScreen from './HomeScreen';
+import EmailSingIn from './EmailSignIn';
+export {HomeScreen, EmailSingIn};

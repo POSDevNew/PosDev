@@ -1,8 +1,10 @@
-export const COLORS={
-    primary:"#284b63",
-    backgroung:"#d8e2dc",
-    textColor:"#000000",
-}
+export const COLORS = {
+  primary: '#284b63',
+  background: '#d8e2dc',
+  textColor: '#012a4a',
+  singinColor: '#197278',
+  toggleColor: '#adb5bd',
+};
 
-const theme={COLORS}
+const theme = {COLORS};
 export default theme;
