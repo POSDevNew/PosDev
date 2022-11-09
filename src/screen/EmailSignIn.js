@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
   },
   SinginButton: {
-    backgroundColor: COLORS.background,
+    backgroundColor: COLORS.primary,
     borderRadius: 8,
     height: 40,
     marginHorizontal: 100,
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
   },
   SinginButtonText: {
     fontSize: 20,
-    color: COLORS.primary,
+    color: COLORS.textColor,
   },
   SingUpContainer: {
     marginHorizontal: 20,
