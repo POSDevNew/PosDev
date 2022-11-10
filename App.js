@@ -1,10 +1,8 @@
-import React from 'react'
-import { HomeScreen } from './src/screen'
-
+import React from 'react';
+import {HomeScreen} from './src/screen';
+import {EmailSingIn} from './src/screen';
 const App = () => {
-  return (
-    <HomeScreen></HomeScreen>
-  )
-}
+  return (<HomeScreen></HomeScreen>), (<EmailSingIn></EmailSingIn>);
+};
 
-export default App
+export default App;
