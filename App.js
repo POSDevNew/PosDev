@@ -1,8 +1,18 @@
 import React from 'react';
-import {HomeScreen} from './src/screen';
-import {EmailSingIn} from './src/screen';
+import {StatusBar} from 'react-native';
+import {
+  EmailSingIn,
+  HomeScreen,
+  OTPVerigication,
+  PhoneRegistration,
+} from './src/screen';
 const App = () => {
-  return (<HomeScreen></HomeScreen>), (<EmailSingIn></EmailSingIn>);
+  return (
+    <>
+      <StatusBar barStyle="dark-content" backgroundColor={'#fff'} translucent />
+      <EmailSingIn />
+    </>
+  );
 };
 
 export default App;

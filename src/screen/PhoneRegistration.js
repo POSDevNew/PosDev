@@ -1,4 +1,4 @@
-import {ScrollView, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import {COLORS} from '../contacts/thems';
 import PhoneInput from 'react-native-phone-number-input';
@@ -10,7 +10,7 @@ const PhoneRegistration = ({navigation}) => {
     console.log(phoneNumber);
   };
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.headerContainer}>
         <Ionicons
           style={{marginRight: 100}}
@@ -32,13 +32,12 @@ const PhoneRegistration = ({navigation}) => {
           defaultCode="MM"
           onChangeFormattedText={text => setPhoneNumber(text)}
           containerStyle={styles.phoneContainer}
-          textContainerStyle={styles.phoneContainer}
+          textContainerStyle={styles.phoneContainer1}
         />
-      </View>
-      <View style={styles.btn}>
+
         <RegButton lable="Continue" handleOnPress={handleOnPress} />
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
@@ -46,14 +45,13 @@ export default PhoneRegistration;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: COLORS.backgroung,
     width: '100%',
+    justifyContent: 'center',
   },
   headerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 10,
-    paddingLeft: 10,
     marginTop: 15,
   },
   headerTitle: {
@@ -71,18 +69,23 @@ const styles = StyleSheet.create({
   },
   phoneInput: {
     justifyContent: 'center',
-    marginHorizontal: 20,
+    alignItems: 'center',
   },
   phoneNumber: {
     fontSize: 16,
     paddingVertical: 10,
     color: '#7d7d7d',
+    width: '95%',
   },
   phoneContainer: {
     borderRadius: 10,
+    backgroundColor: COLORS.background,
+    width: '95%',
+    marginBottom: 100,
   },
-  btn: {
-    marginHorizontal: 20,
-    marginTop: 100,
+  phoneContainer1: {
+    borderRadius: 10,
+    backgroundColor: COLORS.background,
+    width: '95%',
   },
 });

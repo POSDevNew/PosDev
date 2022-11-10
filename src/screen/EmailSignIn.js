@@ -1,14 +1,22 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React, {useState} from 'react';
 import {COLORS} from '../contacts/thems';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
-import {TextInput} from 'react-native-gesture-handler';
-import {Images} from '../contacts/Images';
-import {ToggleButton} from '../component';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {RegButton, ToggleButton} from '../component';
 const EmailSignIn = () => {
   const [passwordShow, setPasswordShow] = useState(false);
   return (
-    <View styles={styles.container}>
+    <ScrollView styles={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={styles.headerTitle}>Sing In</Text>
         <Text style={styles.title}>Welcome</Text>
@@ -51,7 +59,7 @@ const EmailSignIn = () => {
           <Feather
             name={passwordShow ? 'eye' : 'eye-off'}
             size={22}
-            color={COLORS.primary}
+            color={COLORS.textColor}
             style={{marginRight: 10}}
             onPress={() => setPasswordShow(!passwordShow)}
           />
@@ -63,34 +71,47 @@ const EmailSignIn = () => {
           <ToggleButton size={0.6} />
           <Text style={styles.remembermeText}>Remember Me</Text>
         </View>
-
-        <Text style={styles.forgotPasswordText}>Fotgot Password</Text>
+        <TouchableOpacity>
+          <Text style={styles.forgotPasswordText}>Fotgot Password ?</Text>
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.SinginButton}>
-        <Text style={styles.SinginButtonText}>Sing In</Text>
-      </TouchableOpacity>
+      <View style={styles.SinginButton}>
+        <RegButton lable="Sign In" />
+      </View>
       <View style={styles.SingUpContainer}>
         <Text style={styles.accountText}>Don't have an account?</Text>
-        <Text style={styles.singUpText}>Sing Up</Text>
+        <TouchableOpacity>
+          <Text style={styles.singUpText}>Sing Up</Text>
+        </TouchableOpacity>
       </View>
-      <Text style={styles.orText}>OR</Text>
-      <TouchableOpacity style={styles.googleButton}>
-        <View style={styles.socialButtonConatiner}>
-          <View style={styles.singinLogoContainer}>
-            <Image source={Images.GOOGLE} style={styles.singinButtonLogo} />
+      <Text style={styles.orText}>or</Text>
+      <View style={{marginBottom: 20}}>
+        <TouchableOpacity style={styles.googleButton}>
+          <View style={styles.socialButtonConatiner}>
+            <View style={styles.singinLogoContainer}>
+              <MaterialIcons name="phone-iphone" size={25} color="#000" />
+            </View>
+            <Text style={styles.socialButtonText}>Phone Registeriation</Text>
           </View>
-          <Text style={styles.socialButtonText}>Connect with Google</Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.facebookButton}>
-        <View style={styles.socialButtonConatiner}>
-          <View style={styles.singinLogoContainer}>
-            <Image source={Images.FACEBOOK} style={styles.singinButtonLogo} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.googleButton}>
+          <View style={styles.socialButtonConatiner}>
+            <View style={styles.singinLogoContainer}>
+              <AntDesign name="google" size={24} color="#F4B400" />
+            </View>
+            <Text style={styles.socialButtonText}>Connect with Google</Text>
           </View>
-          <Text style={styles.socialButtonText}>Connect with Facebook</Text>
-        </View>
-      </TouchableOpacity>
-    </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.facebookButton}>
+          <View style={styles.socialButtonConatiner}>
+            <View style={styles.singinLogoContainer}>
+              <AntDesign name="facebook-square" size={24} color="#4285F4" />
+            </View>
+            <Text style={styles.socialButtonText}>Connect with Facebook</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -111,7 +132,7 @@ const styles = StyleSheet.create({
     lineHeight: 60,
     width: 100,
     textAlign: 'center',
-    color: COLORS.singinColor,
+    color: COLORS.textColor,
   },
   title: {
     fontSize: 20,
@@ -148,7 +169,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlignVertical: 'center',
     padding: 1,
-    color: COLORS.primary,
+    color: COLORS.textColor,
     flex: 1,
   },
   forgotPasswordContainer: {
@@ -168,7 +189,6 @@ const styles = StyleSheet.create({
   SinginButton: {
     backgroundColor: COLORS.background,
     borderRadius: 8,
-    height: 40,
     marginHorizontal: 100,
     justifyContent: 'center',
     alignItems: 'center',
@@ -187,7 +207,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   accountText: {
-    fontSize: 20,
+    fontSize: 16,
     color: COLORS.textColor,
   },
   singUpText: {
@@ -196,11 +216,11 @@ const styles = StyleSheet.create({
     marginLeft: 15,
   },
   orText: {
-    fontSize: 18,
+    fontSize: 16,
     color: COLORS.primary,
     marginLeft: 10,
     alignSelf: 'center',
-    paddingVertical: 2,
+    paddingVertical: 10,
   },
   facebookButton: {
     backgroundColor: COLORS.background,
@@ -225,7 +245,6 @@ const styles = StyleSheet.create({
     width: 18,
   },
   singinLogoContainer: {
-    backgroundColor: COLORS.primary,
     padding: 2,
     borderRadius: 3,
     position: 'absolute',
@@ -239,8 +258,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   socialButtonText: {
-    fontSize: 18,
-    color: COLORS.primary,
+    fontSize: 16,
+    color: COLORS.textColor,
   },
   toggleContainer: {
     flexDirection: 'row',

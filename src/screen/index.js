@@ -2,7 +2,14 @@ import HomeScreen from './HomeScreen';
 import PhoneRegistration from './PhoneRegistration';
 import EmailSingIn from './EmailSignIn';
 import OTPVerigication from './OTPVerigication';
+import ForgetPassword from './ForgetPassword';
+import EmailSignUp from './EmailSignUp';
 
-export {HomeScreen, EmailSingIn, PhoneRegistration, OTPVerigication};
-
-export {HomeScreen};
+export {
+  HomeScreen,
+  ForgetPassword,
+  EmailSingIn,
+  PhoneRegistration,
+  OTPVerigication,
+  EmailSignUp,
+};

@@ -100,7 +100,9 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   resent: {
-    color: COLORS.primary,
+    color: COLORS.singinColor,
+    fontWeight: 'bold',
+    marginLeft: 5,
   },
   inputOtp: {
     height: 120,
@@ -110,7 +112,7 @@ const styles = StyleSheet.create({
     width: 45,
     height: 45,
     borderWidth: 1,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.background,
     color: COLORS.textColor,
     borderRadius: 10,
   },
@@ -120,6 +122,5 @@ const styles = StyleSheet.create({
   otp: {
     height: '100%',
     width: '100%',
-    backgroundColor: COLORS.backgroung,
   },
 });
