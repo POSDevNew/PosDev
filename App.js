@@ -5,12 +5,14 @@ import {
   HomeScreen,
   OTPVerigication,
   PhoneRegistration,
+  EmailSignUp,
+  ForgetPassword,
 } from './src/screen';
 const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColor={'#fff'} translucent />
-      <EmailSingIn />
+      <ForgetPassword />
     </>
   );
 };

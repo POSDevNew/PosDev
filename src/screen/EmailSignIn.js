@@ -67,10 +67,10 @@ const EmailSignIn = () => {
       </View>
       <Text></Text>
       <View style={styles.forgotPasswordContainer}>
-        <View style={styles.toggleContainer}>
-          <ToggleButton size={0.6} />
-          <Text style={styles.remembermeText}>Remember Me</Text>
-        </View>
+        {/* <View style={styles.toggleContainer}> */}
+        {/* <ToggleButton size={0.6} /> */}
+        {/* <Text style={styles.remembermeText}>Remember Me</Text> */}
+        {/* </View> */}
         <TouchableOpacity>
           <Text style={styles.forgotPasswordText}>Fotgot Password ?</Text>
         </TouchableOpacity>
