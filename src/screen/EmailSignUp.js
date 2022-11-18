@@ -18,12 +18,12 @@ import {types} from '@babel/core';
 const EmailSignUp = ({navigation}) => {
   const [passwordShow, setPasswordShow] = useState(false);
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   const handleOnPress = () => {
-    console.log(email,password)
-  }
+    console.log(email, password);
+  };
   return (
     <ScrollView styles={styles.container}>
       <View style={styles.headerContainer}>
@@ -31,11 +31,6 @@ const EmailSignUp = ({navigation}) => {
         <Text style={styles.content}>
           Enter your Name, Email and password to create Account.
         </Text>
-        <View style={styles.text}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Text style={styles.alreadyaccount}>Arleady have account?</Text>
-          </TouchableOpacity>
-        </View>
       </View>
       <View style={styles.inputContainer}>
         <View style={styles.inputSubContainer}>
@@ -63,7 +58,7 @@ const EmailSignUp = ({navigation}) => {
           />
           <TextInput
             value={email}
-            onChangeText={(value)=>setEmail(value)}
+            onChangeText={value => setEmail(value)}
             placeholder="Email address"
             placeholderTextColor={COLORS.primary}
             selectionColor={COLORS.primary}
@@ -81,7 +76,7 @@ const EmailSignUp = ({navigation}) => {
           />
           <TextInput
             value={password}
-            onChangeText={(value)=>setPassword(value)}
+            onChangeText={value => setPassword(value)}
             secureTextEntry={passwordShow ? false : true}
             placeholder="Password"
             placeholderTextColor={COLORS.primary}
@@ -110,6 +105,11 @@ const EmailSignUp = ({navigation}) => {
       <View style={styles.SingupButton}>
         <RegButton lable="Create Account" handleOnPress={handleOnPress} />
       </View>
+      <View style={styles.SingUpContainer}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Text style={styles.alreadyaccount}>Arleady have account?</Text>
+        </TouchableOpacity>
+      </View>
       {/* <View style={styles.SingUpContainer}> */}
       {/* <Text style={styles.accountText}>Don't have an account?</Text> */}
       {/* <TouchableOpacity> */}
@@ -118,7 +118,9 @@ const EmailSignUp = ({navigation}) => {
       {/* </View> */}
       <Text style={styles.orText}>or</Text>
       <View style={{marginBottom: 20}}>
-        <TouchableOpacity style={styles.googleButton}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('PhoneRegistration')}
+          style={styles.googleButton}>
           <View style={styles.socialButtonConatiner}>
             <View style={styles.singinLogoContainer}>
               <MaterialIcons name="phone-iphone" size={25} color="#000" />

@@ -38,6 +38,7 @@ allprojects {
         maven {
             // Android JSC is installed from npm
             url("$rootDir/../node_modules/jsc-android/dist")
+            url("https://www.jitpack.io")
         }
         mavenCentral {
             // We don't want to fetch react-native from Maven Central as there are
@@ -47,7 +48,7 @@ allprojects {
             }
         }
         google()
-        mavenCentral()  // Maven Central repository
-        maven { url 'https://www.jitpack.io' }
+        // mavenCentral()  // Maven Central repository
+        // maven { url 'https://www.jitpack.io' }
     }
 }
