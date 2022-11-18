@@ -12,14 +12,13 @@ import {COLORS} from '../contacts/thems';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {RegButton, ToggleButton} from '../component';
-const EmailSignIn = () => {
+import {RegButton} from '../component';
+const EmailSignIn = ({navigation}) => {
   const [passwordShow, setPasswordShow] = useState(false);
   return (
     <ScrollView styles={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={styles.headerTitle}>Sing In</Text>
-        <Text style={styles.title}>Welcome</Text>
         <Text style={styles.content}>
           Enter your username and password, and growth your business with POS
         </Text>
@@ -67,12 +66,8 @@ const EmailSignIn = () => {
       </View>
       <Text></Text>
       <View style={styles.forgotPasswordContainer}>
-        {/* <View style={styles.toggleContainer}> */}
-        {/* <ToggleButton size={0.6} /> */}
-        {/* <Text style={styles.remembermeText}>Remember Me</Text> */}
-        {/* </View> */}
-        <TouchableOpacity>
-          <Text style={styles.forgotPasswordText}>Fotgot Password ?</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>
+          <Text style={styles.forgotPasswordText}>Forgot Password ?</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.SinginButton}>
@@ -80,13 +75,15 @@ const EmailSignIn = () => {
       </View>
       <View style={styles.SingUpContainer}>
         <Text style={styles.accountText}>Don't have an account?</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('EmailSignUp')}>
           <Text style={styles.singUpText}>Sing Up</Text>
         </TouchableOpacity>
       </View>
       <Text style={styles.orText}>or</Text>
       <View style={{marginBottom: 20}}>
-        <TouchableOpacity style={styles.googleButton}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('PhoneRegistration')}
+          style={styles.googleButton}>
           <View style={styles.socialButtonConatiner}>
             <View style={styles.singinLogoContainer}>
               <MaterialIcons name="phone-iphone" size={25} color="#000" />
@@ -119,33 +116,28 @@ export default EmailSignIn;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: COLORS.background,
   },
   headerContainer: {
     alignItems: 'center',
-    paddingVertical: 8,
     paddingHorizontal: 1,
+    marginTop: 60,
   },
   headerTitle: {
     fontSize: 28,
-    lineHeight: 60,
     width: 100,
     textAlign: 'center',
     color: COLORS.textColor,
   },
   title: {
     fontSize: 20,
-    lineHeight: 30,
-    marginTop: 50,
-    marginBottom: 2,
+    marginVertical: 10,
     marginHorizontal: 20,
     color: COLORS.textColor,
   },
   content: {
     fontSize: 20,
-    marginTop: 10,
-    marginBottom: 20,
+    marginVertical: 40,
     marginHorizontal: 20,
     color: COLORS.textColor,
   },
@@ -155,7 +147,7 @@ const styles = StyleSheet.create({
     padding: 7,
     margin: 2,
     marginHorizontal: 20,
-    marginVertical: 6,
+    marginVertical: 10,
     borderRadius: 8,
     borderWidth: 5,
     borderColor: COLORS.background,
@@ -178,29 +170,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  remembermeText: {
-    fontSize: 14,
-    color: COLORS.primary,
-  },
   forgotPasswordText: {
     fontSize: 14,
     color: COLORS.primary,
   },
   SinginButton: {
-    backgroundColor: COLORS.primary,
-    borderRadius: 8,
     marginHorizontal: 100,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
+    marginVertical: 20,
   },
-  SinginButtonText: {
-    fontSize: 20,
-    color: COLORS.textColor,
-  },
+
   SingUpContainer: {
     marginHorizontal: 20,
-
     justifyContent: 'center',
     paddingVertical: 15,
     flexDirection: 'row',

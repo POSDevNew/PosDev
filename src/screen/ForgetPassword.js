@@ -4,7 +4,7 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {RegButton} from '../component';
 
-const ForgetPassword = () => {
+const ForgetPassword = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>

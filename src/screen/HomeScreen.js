@@ -1,9 +1,13 @@
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {COLORS} from '../contacts/thems';
 
 const HomeScreen = () => {
-  return <View style={styles.container}></View>;
+  return (
+    <View style={styles.container}>
+      <Text>HomeScreen</Text>
+    </View>
+  );
 };
 
 export default HomeScreen;

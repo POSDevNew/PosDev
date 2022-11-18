@@ -1,4 +1,4 @@
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import {COLORS} from '../contacts/thems';
 import PhoneInput from 'react-native-phone-number-input';
@@ -7,7 +7,7 @@ import {RegButton} from '../component';
 const PhoneRegistration = ({navigation}) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const handleOnPress = () => {
-    console.log(phoneNumber);
+    navigation.navigate('OTPVerigication');
   };
   return (
     <View style={styles.container}>

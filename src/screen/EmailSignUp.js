@@ -15,18 +15,17 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {RegButton, ToggleButton} from '../component';
 import {types} from '@babel/core';
 
-const EmailSignUp = () => {
+const EmailSignUp = ({navigation}) => {
   const [passwordShow, setPasswordShow] = useState(false);
   return (
     <ScrollView styles={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={styles.headerTitle}>Sing Up</Text>
-        <Text style={styles.title}>Create Account</Text>
         <Text style={styles.content}>
-          Enter your Name, Email and password for sing up.
+          Enter your Name, Email and password to create Account.
         </Text>
         <View style={styles.text}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
             <Text style={styles.alreadyaccount}>Arleady have account?</Text>
           </TouchableOpacity>
         </View>
