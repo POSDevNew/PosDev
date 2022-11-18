@@ -17,6 +17,13 @@ import {types} from '@babel/core';
 
 const EmailSignUp = ({navigation}) => {
   const [passwordShow, setPasswordShow] = useState(false);
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  
+  const handleOnPress = () => {
+    console.log(email,password)
+  }
   return (
     <ScrollView styles={styles.container}>
       <View style={styles.headerContainer}>
@@ -55,6 +62,8 @@ const EmailSignUp = ({navigation}) => {
             style={{marginRight: 10}}
           />
           <TextInput
+            value={email}
+            onChangeText={(value)=>setEmail(value)}
             placeholder="Email address"
             placeholderTextColor={COLORS.primary}
             selectionColor={COLORS.primary}
@@ -71,6 +80,8 @@ const EmailSignUp = ({navigation}) => {
             style={{marginRight: 10}}
           />
           <TextInput
+            value={password}
+            onChangeText={(value)=>setPassword(value)}
             secureTextEntry={passwordShow ? false : true}
             placeholder="Password"
             placeholderTextColor={COLORS.primary}
@@ -97,7 +108,7 @@ const EmailSignUp = ({navigation}) => {
       {/* </TouchableOpacity> */}
       {/* </View> */}
       <View style={styles.SingupButton}>
-        <RegButton lable="Create Account" />
+        <RegButton lable="Create Account" handleOnPress={handleOnPress} />
       </View>
       {/* <View style={styles.SingUpContainer}> */}
       {/* <Text style={styles.accountText}>Don't have an account?</Text> */}

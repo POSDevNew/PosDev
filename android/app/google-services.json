@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "611399494769",
+    "project_id": "posdev-d3a34",
+    "storage_bucket": "posdev-d3a34.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611399494769:android:e9c9f2cca67f099c3affd0",
+        "android_client_info": {
+          "package_name": "com.posdev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "611399494769-u6rj43j5k0df9dfm2il3d9e6smi975t2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArmRcw1d35i26OrsIDxA_Uw3S2FkKxWT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "611399494769-u6rj43j5k0df9dfm2il3d9e6smi975t2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
