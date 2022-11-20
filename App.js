@@ -1,9 +1,8 @@
 import {NavigationContainer} from '@react-navigation/native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {StatusBar} from 'react-native';
-import AuthNavigator from './src/navigation/AuthNavigator';
 import auth from '@react-native-firebase/auth';
-import {HomeScreen} from './src/screen';
+import {AuthNavigator, MainNavigator} from './src/navigation';
 
 const App = () => {
   const [initializing, setInitializing] = useState(true);
@@ -25,7 +24,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <StatusBar barStyle="dark-content" backgroundColor={'#fff'} translucent />
-      {user ? <HomeScreen /> : <AuthNavigator />}
+      {user ? <MainNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 };

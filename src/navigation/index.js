@@ -1,3 +1,4 @@
 import AuthNavigator from './AuthNuvigathon';
+import MainNavigator from './MainNavigator';
 
-export {AuthNavigator};
+export {AuthNavigator, MainNavigator};
