@@ -12,17 +12,18 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {RegButton, ToggleButton} from '../component';
-import {types} from '@babel/core';
+import {RegButton} from '../component';
+import {signUp} from '../databases/auth';
 
 const EmailSignUp = ({navigation}) => {
   const [passwordShow, setPasswordShow] = useState(false);
 
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleOnPress = () => {
-    console.log(email, password);
+    signUp(name, email, password);
   };
   return (
     <ScrollView styles={styles.container}>
@@ -41,6 +42,8 @@ const EmailSignUp = ({navigation}) => {
             style={{marginRight: 10}}
           />
           <TextInput
+            value={name}
+            onChangeText={value => setName(value)}
             placeholder="User Name"
             placeholderTextColor={COLORS.primary}
             selectionColor={COLORS.primary}
@@ -93,15 +96,6 @@ const EmailSignUp = ({navigation}) => {
         </View>
       </View>
       <Text></Text>
-      {/* <View style={styles.forgotPasswordContainer}> */}
-      {/* <View style={styles.toggleContainer}> */}
-      {/* <ToggleButton size={0.6} /> */}
-      {/* <Text style={styles.remembermeText}>Remember Me</Text> */}
-      {/* </View> */}
-      {/* <TouchableOpacity> */}
-      {/* <Text style={styles.forgotPasswordText}>Fotgot Password ?</Text> */}
-      {/* </TouchableOpacity> */}
-      {/* </View> */}
       <View style={styles.SingupButton}>
         <RegButton lable="Create Account" handleOnPress={handleOnPress} />
       </View>
@@ -110,12 +104,6 @@ const EmailSignUp = ({navigation}) => {
           <Text style={styles.alreadyaccount}>Arleady have account?</Text>
         </TouchableOpacity>
       </View>
-      {/* <View style={styles.SingUpContainer}> */}
-      {/* <Text style={styles.accountText}>Don't have an account?</Text> */}
-      {/* <TouchableOpacity> */}
-      {/* <Text style={styles.singUpText}>Sing Up</Text> */}
-      {/* </TouchableOpacity> */}
-      {/* </View> */}
       <Text style={styles.orText}>or</Text>
       <View style={{marginBottom: 20}}>
         <TouchableOpacity
