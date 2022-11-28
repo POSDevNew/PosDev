@@ -5,7 +5,9 @@ import {COLORS} from '../contacts/thems';
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>HomeScreen</Text>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Text style={styles.alreadyaccount}>HomeScreen</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -16,6 +18,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: COLORS.backgroung,
+    marginHorizontal: 20,
+    backgroundColor: COLORS.background,
   },
 });
