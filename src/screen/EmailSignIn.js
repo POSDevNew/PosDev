@@ -13,8 +13,22 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {RegButton} from '../component';
+import {googleSingin, signIn} from '../databases/auth';
+
 const EmailSignIn = ({navigation}) => {
   const [passwordShow, setPasswordShow] = useState(false);
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const googleSignIn = () => {
+    googleSingin;
+  };
+
+  const handleOnPress = () => {
+    signIn(email, password);
+  };
+
   return (
     <ScrollView styles={styles.container}>
       <View style={styles.headerContainer}>
@@ -33,6 +47,8 @@ const EmailSignIn = ({navigation}) => {
             style={{marginRight: 10}}
           />
           <TextInput
+            value={email}
+            onChangeText={value => setEmail(value)}
             placeholder="User Name"
             placeholderTextColor={COLORS.primary}
             selectionColor={COLORS.primary}
@@ -49,6 +65,8 @@ const EmailSignIn = ({navigation}) => {
             style={{marginRight: 10}}
           />
           <TextInput
+            value={password}
+            onChangeText={value => setPassword(value)}
             secureTextEntry={passwordShow ? false : true}
             placeholder="Password"
             placeholderTextColor={COLORS.primary}
@@ -71,7 +89,7 @@ const EmailSignIn = ({navigation}) => {
         </TouchableOpacity>
       </View>
       <View style={styles.SinginButton}>
-        <RegButton lable="Sign In" />
+        <RegButton lable="Sign In" handleOnPress={handleOnPress} />
       </View>
       <View style={styles.SingUpContainer}>
         <Text style={styles.accountText}>Don't have an account?</Text>
@@ -91,7 +109,16 @@ const EmailSignIn = ({navigation}) => {
             <Text style={styles.socialButtonText}>Phone Registeriation</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.googleButton}>
+
+        <TouchableOpacity
+          style={styles.googleButton}
+          onPress={() =>
+            googleSignIn
+              .then(res => {
+                console.log('Signed in with Google!');
+              })
+              .catch(error => console.log(error))
+          }>
           <View style={styles.socialButtonConatiner}>
             <View style={styles.singinLogoContainer}>
               <AntDesign name="google" size={24} color="#F4B400" />
@@ -99,6 +126,7 @@ const EmailSignIn = ({navigation}) => {
             <Text style={styles.socialButtonText}>Connect with Google</Text>
           </View>
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.facebookButton}>
           <View style={styles.socialButtonConatiner}>
             <View style={styles.singinLogoContainer}>
