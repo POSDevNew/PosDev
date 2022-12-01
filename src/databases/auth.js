@@ -2,19 +2,18 @@ import auth from '@react-native-firebase/auth';
 import {ToastAndroid} from 'react-native';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 
-export const googleSingin = async () => {
-  GoogleSignin.configure({
-    webClientId:
-      '611399494769-u6rj43j5k0df9dfm2il3d9e6smi975t2.apps.googleusercontent.com',
-  });
+GoogleSignin.configure({
+  webClientId:
+    '611399494769-u6rj43j5k0df9dfm2il3d9e6smi975t2.apps.googleusercontent.com',
+});
 
-  // Get the users ID token
+export const googleSingin = async () => {
+  await GoogleSignin.hasPlayServices({showPlayServicesUpdateDialog: true});
+
   const {idToken} = await GoogleSignin.signIn();
 
-  // Create a Google credential with the token
   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
 
-  // Sign-in the user with the credential
   return auth().signInWithCredential(googleCredential);
 };
 

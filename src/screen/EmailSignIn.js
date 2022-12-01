@@ -22,7 +22,11 @@ const EmailSignIn = ({navigation}) => {
   const [password, setPassword] = useState('');
 
   const googleSignIn = () => {
-    googleSingin;
+    googleSingin()
+      .then(res => {
+        console.log('Signed in with Google!');
+      })
+      .catch(error => console.log(error));
   };
 
   const handleOnPress = () => {
@@ -110,15 +114,7 @@ const EmailSignIn = ({navigation}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.googleButton}
-          onPress={() =>
-            googleSignIn
-              .then(res => {
-                console.log('Signed in with Google!');
-              })
-              .catch(error => console.log(error))
-          }>
+        <TouchableOpacity style={styles.googleButton} onPress={googleSignIn}>
           <View style={styles.socialButtonConatiner}>
             <View style={styles.singinLogoContainer}>
               <AntDesign name="google" size={24} color="#F4B400" />
