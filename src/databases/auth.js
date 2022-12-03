@@ -2,6 +2,20 @@ import auth from '@react-native-firebase/auth';
 import {ToastAndroid} from 'react-native';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 
+export const signInWithPhoneNumber = async phoneNumber => {
+  console.log(phoneNumber);
+  const confirmation = await auth().signInWithPhoneNumber('+959400428098');
+  return confirmation;
+};
+
+export const confirmCode = async (confirmation, code) => {
+  try {
+    await confirmation.confirm(code);
+  } catch (error) {
+    console.log('Invalid code.');
+  }
+};
+
 GoogleSignin.configure({
   webClientId:
     '611399494769-u6rj43j5k0df9dfm2il3d9e6smi975t2.apps.googleusercontent.com',

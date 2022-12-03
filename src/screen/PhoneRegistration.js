@@ -4,10 +4,12 @@ import {COLORS} from '../contacts/thems';
 import PhoneInput from 'react-native-phone-number-input';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {RegButton} from '../component';
+import {signInWithPhoneNumber} from '../databases/auth';
 const PhoneRegistration = ({navigation}) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const handleOnPress = () => {
-    navigation.navigate('OTPVerigication');
+    const confirm = signInWithPhoneNumber(phoneNumber);
+    console.log(confirm);
   };
   return (
     <View style={styles.container}>
